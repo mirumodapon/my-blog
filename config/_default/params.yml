@@ -1,0 +1,33 @@
+sidebar:
+  compact: false
+  emoji: 🇹🇼
+  subtitle:
+  avatar:
+    src: avatar.png
+    local: true
+
+footer:
+  since: 2025
+
+article:
+  headingAnchor: false
+  math: false
+  readingTime: true
+  license:
+    enabled: true
+    default: "Licensed under CC BY-NC-SA 4.0"
+
+widgets:
+  homepage:
+    - type: "search"
+    - type: "archives"
+      params:
+        limit: 5
+    - type: "categories"
+      params:
+        limit: 10
+    - type: "tag-cloud"
+      params:
+        limit: 10
+  page:
+    - type: "toc"
