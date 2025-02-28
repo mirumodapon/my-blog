@@ -3,14 +3,30 @@ goldmark:
     unsafe: true
 
   extensions:
+    extras:
+      delete:
+        enable: true
+      superscript:
+        enable: true
+      insert:
+        enable: true
+      subscript:
+        enable: true
+      mark:
+        enable: true
+    strikethrough: false
+
     passthrough:
       enable: true
       delimiters:
         block:
-          - ["\\[", "\\]"]
-          - ["$$", "$$"]
+          - - \[
+            - \]
+          - - $$
+            - $$
         inline:
-          - ["\\(", "\\)"]
+          - - \(
+            - \)
 
 tableOfContents:
   endLevel: 4

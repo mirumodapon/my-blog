@@ -31,3 +31,5 @@ widgets:
         limit: 10
   page:
     - type: "toc"
+
+math: true
