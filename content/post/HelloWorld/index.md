@@ -12,13 +12,21 @@ tags:
 
 「Hello World」這個程式的歷史可以追溯到 1970 年代。《The C Programming Language》（C 語言程式設計）這本經典書籍中，Brian Kernighan 和 Dennis Ritchie 使用了一個簡單的範例來介紹如何在螢幕上顯示文字，而這個範例就是「Hello, World!」。由於其簡單易懂且不容易出錯，它很快成為程式設計入門的標誌。
 
----
-
-```c
-#include <stdio.h>
-
-int main() {
-    printf("Hello, World!\n");
-    return 0;
+「Hello, World」的概念可以追溯到 Brian Kernighan 在 1974 年的內部技術手冊 《Programming in C: A Tutorial》，
+他在該手冊中用 B 語言（C 語言的前身）展示了類似的範例程式碼：
+```b
+main() {
+    printf("hello, world");
 }
 ```
+
+## 為什麼是 Hello, World？
+- 簡單易懂：這是一個簡短的句子，容易識別且沒有歧義。
+- 測試環境：可用來測試編譯器是否正常運作、開發環境是否設定正確。
+- 歷史傳承：隨著 C 語言的普及，這個範例成為了大多數程式語言的傳統。
+
+---
+
+<h4>參考資料</h4>
+
+- [wikipedia - "Hello, World!" program](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program)
