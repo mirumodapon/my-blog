@@ -20,10 +20,65 @@ main() {
 }
 ```
 
-## 為什麼是 Hello, World？
-- 簡單易懂：這是一個簡短的句子，容易識別且沒有歧義。
-- 測試環境：可用來測試編譯器是否正常運作、開發環境是否設定正確。
-- 歷史傳承：隨著 C 語言的普及，這個範例成為了大多數程式語言的傳統。
+## Hugo 功能測試
+
+### 一般標記
+
+#### *斜體*
+`*斜體*`
+
+#### **粗體**
+`**粗體**`
+
+#### ~~刪除線~~
+`~~刪除線~~`
+
+#### ==標記==
+`==標記==`
+
+#### ++底線++
+`++底線++`
+
+#### 上^標^
+`上^標^`
+
+#### 下~標~
+`下~標~`
+
+### 程式碼
+
+
+#### 一般顯示
+```c
+#define hugo
+```
+
+#### 程式碼標記
+
+{{< highlight go "linenos=inline, hl_lines=3 6-8, style=emacs" >}}
+package main
+
+import "fmt"
+
+func main() {
+    for i := 0; i < 3; i++ {
+        fmt.Println("Value of i:", i)
+    }
+}
+{{< /highlight >}}
+
+
+### Latex Math
+
+\[
+\begin{aligned}
+KL(\hat{y} || y) &= \sum_{c=1}^{M}\hat{y}_c \log{\frac{\hat{y}_c}{y_c}} \\
+JS(\hat{y} || y) &= \frac{1}{2}(KL(y||\frac{y+\hat{y}}{2}) + KL(\hat{y}||\frac{y+\hat{y}}{2}))
+\end{aligned}
+\]
+
+
+This is an inline \(a^*=x-b^*\) equation.
 
 ---
 
