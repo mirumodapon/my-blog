@@ -4,6 +4,10 @@ main:
     weight: 1
     params:
       icon: home
+  - name: Buy Me Coffee
+    url: https://www.buymeacoffee.com/mirumodapon
+    params:
+      icon: pi-coffee
 
 social:
   - name: GitHub
