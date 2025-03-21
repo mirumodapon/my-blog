@@ -1,6 +1,5 @@
 ---
 date: '2025-01-04T22:59:50+08:00'
-draft: true
 title: Hello World
 tags:
   - helloWorld

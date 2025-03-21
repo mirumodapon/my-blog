@@ -1,6 +1,5 @@
 ---
 date: '2025-02-23T13:22:01+08:00'
-draft: true
 title: 用對 Mac 工具，連貓都能寫程式
 image: cover.png
 tags:
