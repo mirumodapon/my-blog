@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HelloWorld on Mirumo's Blog</title><link>https://blog.mirumo.net/tags/helloworld/</link><description>Recent content in HelloWorld on Mirumo's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sat, 04 Jan 2025 22:59:50 +0800</lastBuildDate><atom:link href="https://blog.mirumo.net/tags/helloworld/index.xml" rel="self" type="application/rss+xml"/><item><title>Hello World</title><link>https://blog.mirumo.net/post/helloworld/</link><pubDate>Sat, 04 Jan 2025 22:59:50 +0800</pubDate><guid>https://blog.mirumo.net/post/helloworld/</guid><description>&lt;p>在資訊科技領域中，「Hello World」經常被用來作為測試開發環境是否正確設置的一種方式，透過將這段文字打印或顯示出來，開發者能迅速確認系統的基本運行狀態。因此我利用這篇文章，作為整個部落格的第一篇文。&lt;/p>
+&lt;h2 id="hello-world-的起源">Hello World 的起源
+&lt;/h2>&lt;p>「Hello World」這個程式的歷史可以追溯到 1970 年代。《The C Programming Language》（C 語言程式設計）這本經典書籍中，Brian Kernighan 和 Dennis Ritchie 使用了一個簡單的範例來介紹如何在螢幕上顯示文字，而這個範例就是「Hello, World!」。由於其簡單易懂且不容易出錯，它很快成為程式設計入門的標誌。&lt;/p>
+&lt;p>「Hello, World」的概念可以追溯到 Brian Kernighan 在 1974 年的內部技術手冊 《Programming in C: A Tutorial》，
+他在該手冊中用 B 語言（C 語言的前身）展示了類似的範例程式碼：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-b" data-lang="b">&lt;span class="line">&lt;span class="cl">&lt;span class="c">main() {
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"> printf(&amp;#34;hello&lt;/span>&lt;span class="nt">,&lt;/span>&lt;span class="c"> world&amp;#34;);
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">}
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="hugo-功能測試">Hugo 功能測試
+&lt;/h2>&lt;h3 id="一般標記">一般標記
+&lt;/h3>&lt;h4 id="斜體">&lt;em>斜體&lt;/em>
+&lt;/h4>&lt;p>&lt;code>*斜體*&lt;/code>&lt;/p>
+&lt;h4 id="粗體">&lt;strong>粗體&lt;/strong>
+&lt;/h4>&lt;p>&lt;code>**粗體**&lt;/code>&lt;/p>
+&lt;h4 id="刪除線">&lt;del>刪除線&lt;/del>
+&lt;/h4>&lt;p>&lt;code>~~刪除線~~&lt;/code>&lt;/p>
+&lt;h4 id="標記">&lt;mark>標記&lt;/mark>
+&lt;/h4>&lt;p>&lt;code>==標記==&lt;/code>&lt;/p>
+&lt;h4 id="底線">&lt;ins>底線&lt;/ins>
+&lt;/h4>&lt;p>&lt;code>++底線++&lt;/code>&lt;/p>
+&lt;h4 id="上標">上&lt;sup>標&lt;/sup>
+&lt;/h4>&lt;p>&lt;code>上^標^&lt;/code>&lt;/p>
+&lt;h4 id="下標">下&lt;sub>標&lt;/sub>
+&lt;/h4>&lt;p>&lt;code>下~標~&lt;/code>&lt;/p>
+&lt;h3 id="程式碼">程式碼
+&lt;/h3>&lt;h4 id="一般顯示">一般顯示
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#define hugo
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="程式碼標記">程式碼標記
+&lt;/h4>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-go" data-lang="go">&lt;span class="line">&lt;span class="ln">1&lt;/span>&lt;span class="cl">&lt;span class="kn">package&lt;/span> &lt;span class="nx">main&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln">2&lt;/span>&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line hl">&lt;span class="ln">3&lt;/span>&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="s">&amp;#34;fmt&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln">4&lt;/span>&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln">5&lt;/span>&lt;span class="cl">&lt;span class="kd">func&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line hl">&lt;span class="ln">6&lt;/span>&lt;span class="cl"> &lt;span class="k">for&lt;/span> &lt;span class="nx">i&lt;/span> &lt;span class="o">:=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="nx">i&lt;/span> &lt;span class="p">&amp;lt;&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="nx">i&lt;/span>&lt;span class="o">++&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line hl">&lt;span class="ln">7&lt;/span>&lt;span class="cl"> &lt;span class="nx">fmt&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Value of i:&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">i&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line hl">&lt;span class="ln">8&lt;/span>&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln">9&lt;/span>&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;h3 id="latex-math">Latex Math
+&lt;/h3>\[
+\begin{aligned}
+KL(\hat{y} || y) &amp;= \sum_{c=1}^{M}\hat{y}_c \log{\frac{\hat{y}_c}{y_c}} \\
+JS(\hat{y} || y) &amp;= \frac{1}{2}(KL(y||\frac{y+\hat{y}}{2}) + KL(\hat{y}||\frac{y+\hat{y}}{2}))
+\end{aligned}
+\]&lt;p>This is an inline \(a^*=x-b^*\) equation.&lt;/p>
+&lt;hr>
+&lt;h4>參考資料&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://en.wikipedia.org/wiki/%22Hello,_World!%22_program" target="_blank" rel="noopener"
+>wikipedia - &amp;ldquo;Hello, World!&amp;rdquo; program&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>
