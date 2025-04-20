@@ -113,7 +113,3 @@ TSP 的目標是尋找最短路徑，使旅行推銷員能夠走訪所有城市�
 <h4>參考資料</h4>
 
 - [wikipedia - Ant colony optimization algorithms](https://en.wikipedia.org/wiki/Ant_colony_optimization_algorithms)
-
-<h4>圖片來源</h4>
-
-- 封面圖片：GPT 生成

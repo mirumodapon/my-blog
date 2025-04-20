@@ -123,7 +123,3 @@ $ cargo build --release
 
 - [Rust Official Documentation Book, Section 1](https://doc.rust-lang.org/book/ch01-00-getting-started.html)
 - [Rust in 100 Seconds](https://youtu.be/5C_HPTJg5ek)
-
-<h4>圖片來源</h4>
-
-- 封面圖片：GPT 生成
