@@ -6,7 +6,6 @@ categories:
   - Rust 學習之旅
 tags:
   - rust
-draft: true
 ---
 
 大家都說 Rust 很難，上手的難度簡直高得讓人望而卻步。  

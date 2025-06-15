@@ -6,7 +6,6 @@ categories:
   - Rust 學習之旅
 tags:
   - rust
-draft: true
 ---
 
 ## Rust 是什麼？

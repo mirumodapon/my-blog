@@ -7,7 +7,6 @@ categories:
 tags:
   - 遊記
   - 日本
-draft: true
 ---
 
 從一月訂完機票到現在，終於迎來我可以出境的日子。
