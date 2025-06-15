@@ -1,6 +1,6 @@
 ---
 date: '2025-06-12T23:12:35+09:00'
-title: 
+title: 揪配逆斯 2025 - 踏入日本
 image: cover.jpg
 categories:
   - 揪配逆斯 2025
