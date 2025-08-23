@@ -1,3 +1,6 @@
 [submodule "themes/stack"]
 	path = themes/stack
 	url = git@github.com:Mirumodapon/hugo-theme-stack.git
+[submodule "themes/hugo-notice"]
+	path = themes/hugo-notice
+	url = git@github.com:mirumodapon/hugo-notice.git

@@ -1,5 +1,5 @@
 baseUrl: https://blog.mirumo.net
 languageCode: zh-tw
 title: Mirumo's Blog
-theme: stack
+theme: ["stack", "hugo-notice"]
 publishDir: draft
