@@ -79,16 +79,16 @@ JS(\hat{y} || y) &= \frac{1}{2}(KL(y||\frac{y+\hat{y}}{2}) + KL(\hat{y}||\frac{y
 
 This is an inline \(a^*=x-b^*\) equation.
 
-{{< notice note >}}
+{{< notice error >}}
 {{< /notice >}}
 
 {{< notice warning >}}
 {{< /notice >}}
 
-{{< notice info >}}
+{{< notice success >}}
 {{< /notice >}}
 
-{{< notice tip >}}
+{{< notice info test >}}
 {{< /notice >}}
 
 ---
