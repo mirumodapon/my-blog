@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>廢文 on Mirumo's Blog</title><link>https://blog.mirumo.net/tags/%E5%BB%A2%E6%96%87/</link><description>Recent content in 廢文 on Mirumo's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Mon, 23 Feb 2026 00:56:18 +0800</lastBuildDate><atom:link href="https://blog.mirumo.net/tags/%E5%BB%A2%E6%96%87/index.xml" rel="self" type="application/rss+xml"/><item><title>馬年不想苦 過年必須賭</title><link>https://blog.mirumo.net/post/lunaryear2026/</link><pubDate>Mon, 23 Feb 2026 00:56:18 +0800</pubDate><guid>https://blog.mirumo.net/post/lunaryear2026/</guid><description>&lt;img src="https://blog.mirumo.net/post/lunaryear2026/cover.png" alt="Featured image of post 馬年不想苦 過年必須賭" />&lt;p>過完年了！早上就要上班了，
+去年過完年就被丟進去成功嶺了，
+沒有那種要上班的那種憂鬱感（只有要被關的焦慮）。&lt;/p>
+&lt;p>晚上睡不著覺，
+滑著 Reels 看著一堆的射龍門（？）&lt;/p>
+&lt;p>&lt;mark>各種花式撞柱。&lt;/mark>&lt;/p>
+&lt;p>&lt;img src="https://blog.mirumo.net/post/lunaryear2026/memes.jpeg"
+width="300"
+height="168"
+srcset="https://blog.mirumo.net/post/lunaryear2026/memes_hu_8360004c4b8043a2.jpeg 480w, https://blog.mirumo.net/post/lunaryear2026/memes_hu_887ebde2d3ce8a1d.jpeg 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="178"
+data-flex-basis="428px"
+>&lt;/p>
+&lt;h2 id="射龍門">射龍門（？）
+&lt;/h2>&lt;p>我也不知道為什麼最近一兩年突然很紅的過年賭博遊戲。
+拿一副鋪克牌先抽兩張牌，
+然後依據這兩張牌壓籌碼，
+如果第三隻牌介於前兩張牌之間，
+就可以拿走壓的籌碼數量的 2 倍，
+反之沒壓中就不能拿回籌碼，
+如果跟前兩張牌其中一張一樣，
+稱之為「撞柱」那就要再多賠一倍的錢進去。&lt;/p>
+&lt;p>在這裡有個特別的規則，
+就是如果前兩張牌是一樣的話，
+就只要猜比較大或是比較小，
+但這種情況下「撞柱」，
+需要多賠兩倍的錢（倍數取決於個地方玩法）。&lt;/p>
+&lt;h2 id="ak-撞柱">AK 撞柱
+&lt;/h2>&lt;p>首先一副鋪克牌 52 張，
+總共的組合數量有：\(\binom{52}{2} = 1326\)&lt;/p>
+&lt;p>其中翻到 AK 的組合數量為：\(\binom{4}{1} \times \binom{4}{1} = 16\)&lt;/p>
+&lt;p>也就是說翻到 AK 的機率是：\(\frac{16}{1326} = 0.012066 \approx 0.012 = 1.2\%\)&lt;/p>
+&lt;p>此時，再翻一張的組合數量是 \(50\) 其中 AK 剩下 6 張，
+因此，在已知前兩張是 AK 的情況下「撞柱」的機率是：\(\frac{6}{50}=0.12 = 12\%\)&lt;/p>
+&lt;p>最後我們算算翻到 AK 而且又「撞柱」的機率：\(1.2\% \times 12\% = 0.144\%\)。&lt;/p>
+&lt;h2 id="同數字撞柱">同數字撞柱
+&lt;/h2>&lt;p>剛剛我們已經算出來總共的組合數量是：\(1326\)&lt;/p>
+&lt;p>接著是翻到兩張相同的組合數量：\(\binom{4}{2} = 6\)&lt;/p>
+&lt;p>所以翻倒兩張相同的數字牌機率是 \(\frac{6}{1326}=0.00452 \approx 0.0045 = 0.45\%\)&lt;/p>
+&lt;p>在這時候再翻到同一個數字牌的組合為 \(\frac{1}{2} = 2\)，
+那機率就是 \(\frac{2}{50} = 0.04 = 4\%\)。&lt;/p>
+&lt;p>最後我們一樣算一下翻到同數字又「撞柱」的機率是 \(0.45\% \times 4\% = 0.018\%\)。&lt;/p>
+&lt;h2 id="總結">總結
+&lt;/h2>&lt;p>算到這裡，我就叫 AI 給我一些生活中 0.018% 的例子。（僅供參考）&lt;/p>
+&lt;div class="notice error" id="注意" >
+&lt;p class="notice-title">
+&lt;span class="icon-notice baseline">
+&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="126 76.5 300 300">
+&lt;path d="M297.431 324.397v-34.255c0-3.245-2.344-5.95-5.358-5.95h-32.146c-3.014 0-5.358 2.705-5.358 5.95v34.255c0 3.245 2.344 5.95 5.358 5.95h32.146c3.014 0 5.358-2.705 5.358-5.95Zm-.335-67.428 3.014-82.753c0-1.081-.502-2.524-1.674-3.425-1.005-.902-2.512-1.983-4.019-1.983h-36.834c-1.507 0-3.014 1.081-4.019 1.983-1.172.901-1.674 2.704-1.674 3.786l2.846 82.392c0 2.344 2.512 4.146 5.693 4.146h30.975c3.013 0 5.525-1.803 5.692-4.146Zm-2.344-168.39L423.34 342.425c3.683 7.032 3.516 15.686-.335 22.717-3.85 7.031-10.883 11.358-18.417 11.358H147.413c-7.534 0-14.566-4.327-18.417-11.358-3.85-7.031-4.018-15.685-.335-22.716L257.248 88.578C260.93 81.188 268.13 76.5 276 76.5c7.87 0 15.069 4.688 18.752 12.08Z"/>
+&lt;/svg>
+&lt;/span>注意 &lt;/p>&lt;p>這張表示 AI 生成的&lt;/p>&lt;/div>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>類別&lt;/th>
+&lt;th>事件&lt;/th>
+&lt;th>概率/頻率&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>家庭意外&lt;/strong>&lt;/td>
+&lt;td>天花板燈泡掉落剛好打到頭&lt;/td>
+&lt;td>約 0.018%&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>交通/出行&lt;/strong>&lt;/td>
+&lt;td>車子同時被鳥糞砸到且輪胎漏氣&lt;/td>
+&lt;td>約 0.018%&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>日常小意外&lt;/strong>&lt;/td>
+&lt;td>手指被門夾且剛好割破皮&lt;/td>
+&lt;td>約 0.018%&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>運動/遊戲&lt;/strong>&lt;/td>
+&lt;td>擲骰子 5 次全出 6&lt;/td>
+&lt;td>0.013%（接近）&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>抽獎/娛樂&lt;/strong>&lt;/td>
+&lt;td>超市抽到指定小獎項（極稀有）&lt;/td>
+&lt;td>約 0.018%&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>科技/錯誤&lt;/strong>&lt;/td>
+&lt;td>5,556 次請求才出現一次系統小錯誤&lt;/td>
+&lt;td>0.018%&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>天氣/自然&lt;/strong>&lt;/td>
+&lt;td>在家窗戶剛好被落下冰雹砸到一角&lt;/td>
+&lt;td>約 0.018%&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>郵件/快遞&lt;/strong>&lt;/td>
+&lt;td>隨機一件快遞完全破損&lt;/td>
+&lt;td>約 0.018%&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>最後整理一下在 Threads 上看到的幹話：&lt;/p>
+&lt;blockquote>
+&lt;p>小賭怡情 大賭郭台銘&lt;/p>
+&lt;p>小孩哪有天天哭 賭徒哪有天天輸&lt;/p>
+&lt;p>打工十年還是工 梭哈一夜住皇宮&lt;/p>
+&lt;p>班都沒有天天上 柱怎可能次次撞&lt;/p>
+&lt;p>賭博不梭哈 對不起爸媽&lt;/p>
+&lt;p>賭贏陶朱隱園 賭輸大安森林公園&lt;/p>
+&lt;p>馬年不想苦 彩卷必須賭&lt;/p>&lt;/blockquote></description></item></channel></rss>
