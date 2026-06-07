@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>資安 on Mirumo's Blog</title><link>https://blog.mirumo.net/tags/%E8%B3%87%E5%AE%89/</link><description>Recent content in 資安 on Mirumo's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sat, 06 Jun 2026 16:39:39 +0800</lastBuildDate><atom:link href="https://blog.mirumo.net/tags/%E8%B3%87%E5%AE%89/index.xml" rel="self" type="application/rss+xml"/><item><title>那些年教過的 Web Security - Natas0, Natas1, Natas2</title><link>https://blog.mirumo.net/post/natas-01/</link><pubDate>Sat, 06 Jun 2026 16:39:39 +0800</pubDate><guid>https://blog.mirumo.net/post/natas-01/</guid><description>&lt;img src="https://blog.mirumo.net/post/natas-01/cover.webp" alt="Featured image of post 那些年教過的 Web Security - Natas0, Natas1, Natas2" />&lt;p>這張 cover 圖好像太花了，但今天的產圖額度用完了 QAQ&lt;/p>
+&lt;h2 id="關於-natas">關於 &lt;a class="link" href="https://overthewire.org/wargames/natas/" target="_blank" rel="noopener"
+>Natas&lt;/a>
+&lt;/h2>&lt;p>每個 Natas 關卡都對應一個獨立的網站，玩家需要使用當前關卡的帳號與密碼登入，我們有用盡各種手段，來找出下一關的密碼。Natas 每個關卡主要使用 Basic Authorization 作為驗證，帳號是 natas + &amp;lt;關卡&amp;gt;，密碼則是前一關找到的密碼啦！&lt;/p>
+&lt;h3 id="basic-authentication">Basic Authentication
+&lt;/h3>&lt;p>Basic Authorization（基本驗證）是 HTTP 協定中最簡單的一種身份驗證方式，用來限制使用者存取網站資源。它的核心概念很直接：&lt;strong>每次請求時都附帶帳號與密碼，讓伺服器驗證你是誰。&lt;/strong>&lt;/p>
+&lt;p>他的傳送方式也很簡單，就是把 &amp;lt;username&amp;gt;:&amp;lt;password&amp;gt; 編碼為 Base64，並且放在 HTTP Header 當中：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Authorization: Basic base64(username:password)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="natas0---natas1">&lt;a class="link" href="http://natas0.natas.labs.overthewire.org" target="_blank" rel="noopener"
+>Natas0&lt;/a> -&amp;gt; Natas1
+&lt;/h2>&lt;p>關卡 0 的描述頁面當中有帳號與密碼，分別是 &lt;code>natas0&lt;/code> 與 &lt;code>natas0&lt;/code>，透過瀏覽器打開的話，會有瀏覽器的提示要求輸入帳號密碼。&lt;/p>
+&lt;p>&lt;img src="https://blog.mirumo.net/post/natas-01/natas0.webp"
+width="1584"
+height="978"
+srcset="https://blog.mirumo.net/post/natas-01/natas0_hu_5c328d5342da8020.webp 480w, https://blog.mirumo.net/post/natas-01/natas0_hu_a193c843d6bc1924.webp 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="161"
+data-flex-basis="388px"
+>&lt;/p>
+&lt;p>看到空空如也的介面，我想大部分對資訊領域的人類都會下意識地打開 Inspect 或是 source code，沒錯密碼就藏在 HTML 原始碼的註解當中，這關就算是解完了。&lt;/p>
+&lt;p>但這邊可以補充一下，我們可以用 &lt;code>cURL&lt;/code> 的指令來完成請求，並直接看到原始碼：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ curl -u natas0:natas0 http://natas0.natas.labs.overthewire.org
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;html&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;head&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;!-- This stuff in the header has nothing to &lt;span class="k">do&lt;/span> with the level --&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;link &lt;span class="nv">rel&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;stylesheet&amp;#34;&lt;/span> &lt;span class="nv">type&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;text/css&amp;#34;&lt;/span> &lt;span class="nv">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;http://natas.labs.overthewire.org/css/level.css&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;link &lt;span class="nv">rel&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;stylesheet&amp;#34;&lt;/span> &lt;span class="nv">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;http://natas.labs.overthewire.org/css/jquery-ui.css&amp;#34;&lt;/span> /&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;link &lt;span class="nv">rel&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;stylesheet&amp;#34;&lt;/span> &lt;span class="nv">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;http://natas.labs.overthewire.org/css/wechall.css&amp;#34;&lt;/span> /&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;script &lt;span class="nv">src&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;http://natas.labs.overthewire.org/js/jquery-1.9.1.js&amp;#34;&lt;/span>&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;script &lt;span class="nv">src&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;http://natas.labs.overthewire.org/js/jquery-ui.js&amp;#34;&lt;/span>&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;script &lt;span class="nv">src&lt;/span>&lt;span class="o">=&lt;/span>http://natas.labs.overthewire.org/js/wechall-data.js&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;script &lt;span class="nv">src&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;http://natas.labs.overthewire.org/js/wechall.js&amp;#34;&lt;/span>&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;script&amp;gt;var &lt;span class="nv">wechallinfo&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="o">{&lt;/span> &lt;span class="s2">&amp;#34;level&amp;#34;&lt;/span>: &lt;span class="s2">&amp;#34;natas0&amp;#34;&lt;/span>, &lt;span class="s2">&amp;#34;pass&amp;#34;&lt;/span>: &lt;span class="s2">&amp;#34;natas0&amp;#34;&lt;/span> &lt;span class="o">}&lt;/span>&lt;span class="p">;&lt;/span>&amp;lt;/script&amp;gt;&amp;lt;/head&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;body&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;h1&amp;gt;natas0&amp;lt;/h1&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;div &lt;span class="nv">id&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;content&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">You can find the password &lt;span class="k">for&lt;/span> the next level on this page.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;!--The password &lt;span class="k">for&lt;/span> natas1 is ******************************** --&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;/div&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;/body&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;/html&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="natas1---natas2">&lt;a class="link" href="http://natas1.natas.labs.overthewire.org" target="_blank" rel="noopener"
+>Natas1&lt;/a> -&amp;gt; Natas2
+&lt;/h2>&lt;p>接著來到第 1 關，網站把滑鼠右鍵選單給擋住了，根據我之前在社團的經驗來看，我覺得對於大部分的人好像沒有影響，因為大家打開 Inspect 都是按 F12，好像也不用右鍵選單。在 Mac 上對於 Chromium 的使用者可以用 &lt;code>opt&lt;/code> + &lt;code>cmd&lt;/code> + &lt;code>c&lt;/code> 來開啟，我也就不列舉各個系統與瀏覽器了，直接沿用 Natas0 的解法即可。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">mirumo@ubuntu:~$ curl -u natas1:******************************** http://natas1.natas.labs.overthewire.org
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;html&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;head&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;!-- This stuff in the header has nothing to &lt;span class="k">do&lt;/span> with the level --&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;link &lt;span class="nv">rel&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;stylesheet&amp;#34;&lt;/span> &lt;span class="nv">type&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;text/css&amp;#34;&lt;/span> &lt;span class="nv">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;http://natas.labs.overthewire.org/css/level.css&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;link &lt;span class="nv">rel&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;stylesheet&amp;#34;&lt;/span> &lt;span class="nv">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;http://natas.labs.overthewire.org/css/jquery-ui.css&amp;#34;&lt;/span> /&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;link &lt;span class="nv">rel&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;stylesheet&amp;#34;&lt;/span> &lt;span class="nv">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;http://natas.labs.overthewire.org/css/wechall.css&amp;#34;&lt;/span> /&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;script &lt;span class="nv">src&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;http://natas.labs.overthewire.org/js/jquery-1.9.1.js&amp;#34;&lt;/span>&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;script &lt;span class="nv">src&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;http://natas.labs.overthewire.org/js/jquery-ui.js&amp;#34;&lt;/span>&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;script &lt;span class="nv">src&lt;/span>&lt;span class="o">=&lt;/span>http://natas.labs.overthewire.org/js/wechall-data.js&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;script &lt;span class="nv">src&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;http://natas.labs.overthewire.org/js/wechall.js&amp;#34;&lt;/span>&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;script&amp;gt;var &lt;span class="nv">wechallinfo&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="o">{&lt;/span> &lt;span class="s2">&amp;#34;level&amp;#34;&lt;/span>: &lt;span class="s2">&amp;#34;natas1&amp;#34;&lt;/span>, &lt;span class="s2">&amp;#34;pass&amp;#34;&lt;/span>: &lt;span class="s2">&amp;#34;********************************&amp;#34;&lt;/span> &lt;span class="o">}&lt;/span>&lt;span class="p">;&lt;/span>&amp;lt;/script&amp;gt;&amp;lt;/head&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;body &lt;span class="nv">oncontextmenu&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;javascript:alert(&amp;#39;right clicking has been blocked!&amp;#39;);return false;&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;h1&amp;gt;natas1&amp;lt;/h1&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;div &lt;span class="nv">id&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;content&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">You can find the password &lt;span class="k">for&lt;/span> the
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">next level on this page, but rightclicking has been blocked!
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;!--The password &lt;span class="k">for&lt;/span> natas2 is ******************************** --&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;/div&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;/body&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;/html&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="natas2---natas3">&lt;a class="link" href="http://natas2.natas.labs.overthewire.org" target="_blank" rel="noopener"
+>Natas2&lt;/a> -&amp;gt; Natas3
+&lt;/h2>&lt;p>來到關卡 2，一如既往的空空如也，好吧！看原始碼：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="ln"> 1&lt;/span>&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln"> 2&lt;/span>&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln"> 3&lt;/span>&lt;span class="cl">&lt;span class="c">&amp;lt;!-- This stuff in the header has nothing to do with the level --&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln"> 4&lt;/span>&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">link&lt;/span> &lt;span class="na">rel&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;stylesheet&amp;#34;&lt;/span> &lt;span class="na">type&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;text/css&amp;#34;&lt;/span> &lt;span class="na">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;http://natas.labs.overthewire.org/css/level.css&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln"> 5&lt;/span>&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">link&lt;/span> &lt;span class="na">rel&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;stylesheet&amp;#34;&lt;/span> &lt;span class="na">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;http://natas.labs.overthewire.org/css/jquery-ui.css&amp;#34;&lt;/span> &lt;span class="p">/&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln"> 6&lt;/span>&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">link&lt;/span> &lt;span class="na">rel&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;stylesheet&amp;#34;&lt;/span> &lt;span class="na">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;http://natas.labs.overthewire.org/css/wechall.css&amp;#34;&lt;/span> &lt;span class="p">/&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln"> 7&lt;/span>&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">script&lt;/span> &lt;span class="na">src&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;http://natas.labs.overthewire.org/js/jquery-1.9.1.js&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">script&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln"> 8&lt;/span>&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">script&lt;/span> &lt;span class="na">src&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;http://natas.labs.overthewire.org/js/jquery-ui.js&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">script&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln"> 9&lt;/span>&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">script&lt;/span> &lt;span class="na">src&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">http://natas.labs.overthewire.org/js/wechall-data.js&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">script&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;&lt;/span>&lt;span class="nt">script&lt;/span> &lt;span class="na">src&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;http://natas.labs.overthewire.org/js/wechall.js&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">script&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln">10&lt;/span>&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">script&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="kd">var&lt;/span> &lt;span class="nx">wechallinfo&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="s2">&amp;#34;level&amp;#34;&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">&amp;#34;natas2&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;pass&amp;#34;&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">&amp;#34;********************************&amp;#34;&lt;/span> &lt;span class="p">};&amp;lt;/&lt;/span>&lt;span class="nt">script&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln">11&lt;/span>&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln">12&lt;/span>&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>natas2&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln">13&lt;/span>&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span> &lt;span class="na">id&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;content&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln">14&lt;/span>&lt;span class="cl">There is nothing on this page
+&lt;/span>&lt;/span>&lt;span class="line hl">&lt;span class="ln">15&lt;/span>&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">img&lt;/span> &lt;span class="na">src&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;files/pixel.png&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln">16&lt;/span>&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln">17&lt;/span>&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;p>這裡出現了一張位於 &lt;code>files/pixel.png&lt;/code> 的圖片，因此可以合理猜測網站存在一個 &lt;code>files/&lt;/code> 目錄。&lt;/p>
+&lt;p>許多早期網站若沒有正確關閉 Directory Listing（目錄列舉），直接存取目錄路徑時，伺服器就會列出該目錄底下的所有檔案。&lt;/p>
+&lt;p>&lt;img src="https://blog.mirumo.net/post/natas-01/natas2.webp"
+width="1306"
+height="654"
+srcset="https://blog.mirumo.net/post/natas-01/natas2_hu_f7566d101a29e997.webp 480w, https://blog.mirumo.net/post/natas-01/natas2_hu_4c720b99af36c79.webp 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="199"
+data-flex-basis="479px"
+>&lt;/p>
+&lt;p>這裡有一個 &lt;code>user.txt&lt;/code> 的檔案，就不客氣地點進去看囉！&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-txt" data-lang="txt">&lt;span class="line">&lt;span class="cl"># username:password
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">alice:BYNdCesZqW
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">bob:jw2ueICLvT
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">charlie:G5vCxkVV3m
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">natas3:********************************
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">eve:zo4mJWyNj2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mallory:9urtcpzBmH
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>那些年教過的 Web Security - Overview</title><link>https://blog.mirumo.net/post/natas-00/</link><pubDate>Sat, 06 Jun 2026 16:19:32 +0800</pubDate><guid>https://blog.mirumo.net/post/natas-00/</guid><description>&lt;img src="https://blog.mirumo.net/post/natas-00/cover.webp" alt="Featured image of post 那些年教過的 Web Security - Overview" />&lt;p>前幾天翻到這個&lt;a class="link" href="https://overthewire.org/wargames" target="_blank" rel="noopener"
+>網站&lt;/a>，想想我之前也是資安社團的講師兼任助教，好吧！這都是往事了，&lt;del>怎麼覺得最近這麼容易提當年&lt;/del>。當時在資安社團主要教 Container 與 Web Security，後來畢業之後，幾次上去偷偷看 CTF 的題目，感覺都有點水，所以就把網站推給學弟妹囉！&lt;/p>
+&lt;p>。
+。
+。&lt;/p>
+&lt;p>但我手癢，所以有空的時候來寫寫解題的 write-up。&lt;/p>
+&lt;h2 id="關於-overthewire">關於 overthewire
+&lt;/h2>&lt;p>OverTheWire 是個社群，提供了一系列實作導向 WarGames 這個網站，幫助學習者循序漸進地掌握電腦系統、Linux、網路、密碼學、逆向工程以及 Web Security 等資安領域知識。&lt;/p>
+&lt;p>OverTheWire 提供多種不同主題的 WarGames，例如：&lt;/p>
+&lt;ul>
+&lt;li>Bandit：Linux 指令、檔案系統與基礎資安入門&lt;/li>
+&lt;li>Natas：Web Security 與伺服器端漏洞&lt;/li>
+&lt;li>Leviathan：權限提升與系統安全&lt;/li>
+&lt;li>Krypton：密碼學基礎與古典密碼破解&lt;/li>
+&lt;li>Narnia：二進位漏洞與程式安全&lt;/li>
+&lt;li>Behemoth：進階權限提升與漏洞利用&lt;/li>
+&lt;li>Utumno：Linux 系統安全與 Buffer Overflow&lt;/li>
+&lt;li>Maze：綜合型高難度挑戰&lt;/li>
+&lt;/ul>
+&lt;h2 id="關於這系列文章">關於這系列文章
+&lt;/h2>&lt;p>考慮到我之前在社團教 Web Security 的，所以就來寫 Natas 的解題吧！但當然的延續之前的佛系更新，我當然是想到才更新啦！&lt;/p>
+&lt;p>我在想應該有更多這個網站的解題文章，肯定不缺這一篇的。&lt;/p></description></item></channel></rss>
