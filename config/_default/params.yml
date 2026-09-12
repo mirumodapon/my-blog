@@ -2,9 +2,7 @@ sidebar:
   compact: false
   emoji: 🇹🇼
   subtitle:
-  avatar:
-    src: avatar.png
-    local: true
+  avatar: avatar.png
 
 footer:
   since: 2025
